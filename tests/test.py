@@ -12,7 +12,7 @@ if __name__ == "__main__":
     print("Testing read_csv function in csv_utilities: ")
     cwd = os.getcwd()
 
-    input_file_path = os.path.join(cwd, "test_files/unit_test/test_statement.CSV")
+    input_file_path = os.path.join(cwd, "unit_test/test_statement.CSV")
     header, data, row_count = read_csv(input_file_path)
 
     assert header == "Status,Date,Description,Debit,Credit".split(",")
@@ -24,7 +24,7 @@ if __name__ == "__main__":
 
     print("Testing write_csv function in csv_utilities: ")
     output_file_name = f"statement_book_{date.today()}.csv"
-    output_file_path = os.path.join(cwd, "test_files/unit_test", output_file_name)
+    output_file_path = os.path.join(cwd, "unit_test", output_file_name)
 
     write_csv(output_file_path, csv_content={}, row_count=0)
 

@@ -1,5 +1,4 @@
-# How to Run BTruong's Final Project
-
+# Plutus
 This project is meant to compile credit card, bank, and any transactional statements
 across various issuers into a single composed `.csv` file.
 
