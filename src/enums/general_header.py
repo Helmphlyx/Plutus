@@ -1,0 +1,17 @@
+"""GeneralHeader."""
+from enum import Enum
+
+
+class GeneralHeader(Enum):
+    """GeneralHeader."""
+
+    TRANS_DATE = "TRANSACTION DATE"
+    POSTED_DATE = "POSTED DATE"
+    DESCRIPTION = "DESCRIPTION"
+    AMOUNT = "AMOUNT"
+    CURRENCY = "CURRENCY"
+    CATEGORY = "CATEGORY"
+    UTILITY_NUMBERS = "UTILITY NUMBERS"
+    UTILITY_VALUES = "UTILITY VALUES"
+    MISC = "MISCELLANEOUS"
+    ISSUER = "ISSUER"
