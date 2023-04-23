@@ -1,5 +1,5 @@
 """Statement Book."""
-from typing import List
+from typing import List, Tuple
 from enums.general_header import GeneralHeader
 from statement import Statement
 from csv_utilities import csv_to_dict
@@ -8,8 +8,9 @@ from csv_utilities import csv_to_dict
 class StatementBook:
     """StatementBook."""
 
-    def __init__(self, statements: List[Statement]):
+    def __init__(self, statements: List[Statement], headers: Tuple[GeneralHeader] = None):
         """Init."""
+        self.headers = headers or self.default_statement_book_enum_headers
         self.statement_book_headers = []
         self.statement_book_content = []
         self.statement_book, self.statement_book_row_count = self.process_statements(
@@ -34,7 +35,7 @@ class StatementBook:
         return statement_str
 
     @property
-    def statement_book_enum_headers(self):
+    def default_statement_book_enum_headers(self):
         """Ordered tuple of statement book's enumerated headers."""
         return (
             GeneralHeader.ISSUER,
@@ -59,7 +60,7 @@ class StatementBook:
             statement_book_data.extend(statement_data)
 
         statement_book_headers_str = [
-            header.value for header in self.statement_book_enum_headers
+            header.value for header in self.headers
         ]
 
         # convert header and content to single dictionary
@@ -79,7 +80,7 @@ class StatementBook:
 
             # Extract statement values in order of statement book headers
             row_data = []
-            for header in self.statement_book_enum_headers:
+            for header in self.headers:
                 datum = statement_dict.get(header, "")
 
                 # Default values for certain headers.

@@ -1,0 +1,4 @@
+idea/*
+.idea/*
+src/enums/__pycache__/*
+src/__pycache__/*

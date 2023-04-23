@@ -46,6 +46,8 @@ Please provide the directory path, to the directory holding all statements that 
 6. Pass in the file path to `./test_files/statement/` i.e. `C:\Users\user\PycharmProjects\cs_521\btruong_final_project\test_files\statement`
 7. Examine the outputted statement book in the `./test_files/statement/` directory, with filename `statement_book_{date}.csv`
 
+# Weekly Script
+Call `weekly.py` and override `LANDING_DIRECTORY` and `FINANCE_WORKBOOK` respectively to run an automated finance script.
 
 # To Run Unit Tests:
 
@@ -56,3 +58,4 @@ Please provide the directory path, to the directory holding all statements that 
 ```console
 python test.py
 ```
+
