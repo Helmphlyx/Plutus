@@ -9,7 +9,7 @@ log = logging.getLogger(__name__)
 
 def read_csv(filename: str):
     """Read CSV file and return header, data, and row count."""
-    with open(filename) as csv_file:
+    with open(filename, encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
 
         # initialize values to return
@@ -49,7 +49,7 @@ def csv_to_dict(header: List[str], data: List[List[str]]):
     for row in data:
         for index, value in enumerate(row):
             try:
-                csv_dict[header[index]].append(value)
+                csv_dict[header[index]].append(str(value).strip())
             except IndexError as e:
                 log.error(
                     "CSV Data does not have corresponding CSV Header. Check file..."

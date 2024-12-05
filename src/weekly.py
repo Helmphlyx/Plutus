@@ -10,8 +10,8 @@ from os import listdir
 import openpyxl as px
 
 # Directory Paths for Weekly Script
-LANDING_DIRECTORY=r"C:\Users"
-FINANCE_WORKBOOK=r"C:\Users"
+LANDING_DIRECTORY=r"C:\Users\Bao\Desktop\Finances\landing"
+FINANCE_WORKBOOK=r"C:\Users\Bao\Desktop\Finances\finance.xlsx"
 
 def file_to_statement(file_name: str):
     """Read in csv file and create statement object."""
@@ -59,10 +59,14 @@ if __name__ == "__main__":
     # TODO: take lines in statement object and place in excel
     # Write to existing workbook + sheet
     wb = px.load_workbook(FINANCE_WORKBOOK)
+    wb.template = False
     ws = wb["Landing"]
 
     for row in statement_book.statement_book_content:
+        row = [str(cell).strip() for cell in row]
         print(row)
         ws.append(row)
     wb.save(FINANCE_WORKBOOK)
     wb.close()
+
+    print(f"Writing into {FINANCE_WORKBOOK} complete!")

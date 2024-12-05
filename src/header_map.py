@@ -27,4 +27,6 @@ class HeaderMap:
         "serial num": GeneralHeader.UTILITY_NUMBERS,
         "ref num": GeneralHeader.UTILITY_NUMBERS,
         "trans. date": GeneralHeader.TRANS_DATE,
+        "transaction amount": GeneralHeader.AMOUNT,
+        "transaction description": GeneralHeader.DESCRIPTION
     }
